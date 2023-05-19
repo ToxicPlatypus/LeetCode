@@ -4,7 +4,6 @@
  */
 var singleNumber = function(nums) {
     const hash = new Map();
-    count = 0;
 
     for(let i=0; i<nums.length; i++){
         if(!hash.has(nums[i])){
@@ -16,7 +15,6 @@ var singleNumber = function(nums) {
     }
 
     for(const x of hash.keys()){
-    
         if(hash.get(x) == 1){
             return x;
         }
