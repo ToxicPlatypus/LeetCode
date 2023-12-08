@@ -10,16 +10,24 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    let temp = head, count=1;
-    while(temp.next){
-        temp = temp.next;
-        count++;
+    let slow = fast = head;
+    while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
     }
-    count = parseInt(count/2);
+    return slow;
 
-    while(count){
-        head = head.next;
-        count--;
-    }
-    return head;
+    //$$$$$$$$$$$ Another Solution $$$$$$$$$$$$$$$$
+    // let temp = head, count=1;
+    // while(temp.next){
+    //     temp = temp.next;
+    //     count++;
+    // }
+    // count = parseInt(count/2);
+
+    // while(count){
+    //     head = head.next;
+    //     count--;
+    // }
+    // return head;
 }
