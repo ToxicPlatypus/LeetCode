@@ -1,17 +1,18 @@
-# @param {Integer[]} nums
-# @return {Integer}
 def find_min(nums)
   low = 0
   high = nums.length - 1
   result = nums[0]
-  while low < high
-    return nums[low] if nums[low] <= nums[high]
+
+  while low <= high
     mid = (low + high) / 2
-    if nums[mid] >= nums[low]
+
+    if nums[mid] > nums[high]
       low = mid + 1
     else
-      high = mid
+      result = [result, nums[mid]].min
+      high = mid - 1
     end
   end
-  return nums[low]
+
+  result
 end
